@@ -12,7 +12,7 @@ var chargeFrames []int
 
 const (
 	chargeHitmark = 67
-	chargeRadius  = 2.5
+	chargeRadius  = 1
 )
 
 // charlotte frames. CHANGE
@@ -37,7 +37,7 @@ func (c *char) ChargeAttack(p map[string]int) (action.Info, error) {
 		StrikeType: attacks.StrikeTypeDefault,
 		Element:    attributes.Cryo,
 		Durability: 25,
-		Mult:       1.686,
+		Mult:       charge[c.TalentLvlAttack()],
 	}
 
 	windup := 0
