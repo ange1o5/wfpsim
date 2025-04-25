@@ -43,6 +43,7 @@ const (
 	Gorou
 	Heizou
 	Hutao
+	Iansan
 	Itto
 	Jean
 	Kaeya
@@ -246,6 +247,10 @@ func init() {
 	charNames[Hutao] = "hutao"
 	charPrettyName[Hutao] = "Hutao"
 	CharKeyToEle[Hutao] = attributes.Pyro
+
+	charNames[Iansan] = "iansan"
+	charPrettyName[Iansan] = "Iansan"
+	CharKeyToEle[Iansan] = attributes.Electro
 
 	charNames[Itto] = "itto"
 	charPrettyName[Itto] = "Itto"
