@@ -94,6 +94,7 @@ var weaponNames = []string{
 	"filletblade",
 	"finaleofthedeep",
 	"fleuvecendreferryman",
+	"flowerwreathedfeathers",
 	"fluteofezpitzal",
 	"flowingpurity",
 	"footprintoftherainbow",
@@ -201,6 +202,7 @@ var weaponNames = []string{
 	"swordofdescension",
 	"swordofnarzissenkreuz",
 	"talkingstick",
+	"tamayurateinoohanashi",
 	"thealleyflash",
 	"thebell",
 	"theblacksword",
@@ -223,6 +225,7 @@ var weaponNames = []string{
 	"ultimateoverlordsmegamagicsword",
 	"urakumisugiri",
 	"verdict",
+	"vividnotions",
 	"vortexvanquisher",
 	"wanderingevenstar",
 	"wastergreatsword",
@@ -301,6 +304,7 @@ const (
 	FilletBlade
 	FinaleOfTheDeep
 	FleuveCendreFerryman
+	FlowerWreathedFeathers
 	FluteOfEzpitzal
 	FlowingPurity
 	FootprintOfTheRainbow
@@ -408,6 +412,7 @@ const (
 	SwordOfDescension
 	SwordOfNarzissenkreuz
 	TalkingStick
+	TamayurateiNoOhanashi
 	TheAlleyFlash
 	TheBell
 	TheBlackSword
@@ -430,6 +435,7 @@ const (
 	UltimateOverlordsMegaMagicSword
 	UrakuMisugiri
 	Verdict
+	VividNotions
 	VortexVanquisher
 	WanderingEvenstar
 	WasterGreatsword

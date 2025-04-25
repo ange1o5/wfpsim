@@ -19,6 +19,7 @@
     "beidou": [],
     "bennett": [],
     "candace": [],
+    "chasca": [],
     "charlotte": [],
     "chevreuse": [
         "chev"
@@ -27,7 +28,6 @@
     "chongyun": [
         "chong"
     ],
-    "citlali": [],
     "clorinde": [],
     "collei": [],
     "cyno": [],
@@ -85,7 +85,6 @@
     "lisa": [],
     "lynette": [],
     "lyney": [],
-    "mavuika": [],
     "mika": [],
     "mona": [],
     "mualani": [],
@@ -164,12 +163,6 @@
         "lumine-hydro",
         "aetherhydro",
         "luminehydro"
-    ],
-    "travelerpyro": [
-        "aether-pyro",
-        "lumine-pyro",
-        "aetherpyro",
-        "luminepyro"
     ],
     "venti": [],
     "wanderer": [

@@ -90,24 +90,6 @@
       },
       "name_text_hash_map ": "1533656818"
     },
-    "aetherpyro": {
-      "id": 10000005,
-      "sub_id": 503,
-      "key": "aetherpyro",
-      "rarity": "QUALITY_ORANGE",
-      "body": "BODY_BOY",
-      "region": "ASSOC_TYPE_MAINACTOR",
-      "element": "Fire",
-      "weapon_class": "WEAPON_SWORD_ONE_HAND",
-      "icon_name": "UI_AvatarIcon_PlayerBoy",
-      "skill_details": {
-        "skill": 10087,
-        "burst": 10088,
-        "attack": 100542,
-        "burst_energy_cost": 70
-      },
-      "name_text_hash_map ": "1533656818"
-    },
     "albedo": {
       "id": 10000038,
       "key": "albedo",
@@ -329,6 +311,23 @@
       },
       "name_text_hash_map ": "3831162130"
     },
+    "chasca": {
+      "id": 10000104,
+      "key": "chasca",
+      "rarity": "QUALITY_ORANGE",
+      "body": "BODY_LADY",
+      "region": "ASSOC_TYPE_NATLAN",
+      "element": "Wind",
+      "weapon_class": "WEAPON_BOW",
+      "icon_name": "UI_AvatarIcon_Chasca",
+      "skill_details": {
+        "skill": 11042,
+        "burst": 11045,
+        "attack": 11041,
+        "burst_energy_cost": 60
+      },
+      "name_text_hash_map ": "3746229466"
+    },
     "chevreuse": {
       "id": 10000090,
       "key": "chevreuse",
@@ -377,23 +376,6 @@
         "burst": 10403,
         "attack": 10401,
         "burst_energy_cost": 40
-      },
-      "name_text_hash_map ": "2876340530"
-    },
-    "citlali": {
-      "id": 10000107,
-      "key": "citlali",
-      "rarity": "QUALITY_ORANGE",
-      "body": "BODY_GIRL",
-      "region": "ASSOC_TYPE_NATLAN",
-      "element": "Ice",
-      "weapon_class": "WEAPON_CATALYST",
-      "icon_name": "UI_AvatarIcon_Layla",
-      "skill_details": {
-        "skill": 10402,
-        "burst": 10403,
-        "attack": 10401,
-        "burst_energy_cost": 60
       },
       "name_text_hash_map ": "2876340530"
     },
@@ -890,6 +872,23 @@
       },
       "name_text_hash_map ": "1940821986"
     },
+    "lanyan": {
+      "id": 10000108,
+      "key": "lanyan",
+      "rarity": "QUALITY_PURPLE",
+      "body": "BODY_GIRL",
+      "region": "ASSOC_TYPE_LIYUE",
+      "element": "Wind",
+      "weapon_class": "WEAPON_CATALYST",
+      "icon_name": "UI_AvatarIcon_Lanyan",
+      "skill_details": {
+        "skill": 11082,
+        "burst": 11085,
+        "attack": 11081,
+        "burst_energy_cost": 60
+      },
+      "name_text_hash_map ": "1888132250"
+    },
     "layla": {
       "id": 10000074,
       "key": "layla",
@@ -1014,24 +1013,6 @@
       },
       "name_text_hash_map ": "3816664530"
     },
-    "luminepyro": {
-      "id": 10000007,
-      "sub_id": 703,
-      "key": "luminepyro",
-      "rarity": "QUALITY_ORANGE",
-      "body": "BODY_GIRL",
-      "region": "ASSOC_TYPE_MAINACTOR",
-      "element": "Fire",
-      "weapon_class": "WEAPON_SWORD_ONE_HAND",
-      "icon_name": "UI_AvatarIcon_PlayerGirl",
-      "skill_details": {
-        "skill": 10087,
-        "burst": 10088,
-        "attack": 100552,
-        "burst_energy_cost": 70
-      },
-      "name_text_hash_map ": "3816664530"
-    },
     "lynette": {
       "id": 10000083,
       "key": "lynette",
@@ -1074,14 +1055,13 @@
       "region": "ASSOC_TYPE_NATLAN",
       "element": "Fire",
       "weapon_class": "WEAPON_CLAYMORE",
-      "icon_name": "UI_AvatarIcon_Dehya",
+      "icon_name": "UI_AvatarIcon_Mavuika",
       "skill_details": {
-        "skill": 10802,
-        "burst": 10805,
-        "attack": 10801,
-        "burst_energy_cost": 0
+        "skill": 11062,
+        "burst": 11065,
+        "attack": 11061
       },
-      "name_text_hash_map ": "231911858"
+      "name_text_hash_map ": "113398050"
     },
     "mika": {
       "id": 10000080,
