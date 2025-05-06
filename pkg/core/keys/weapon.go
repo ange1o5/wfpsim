@@ -187,6 +187,7 @@ var weaponNames = []string{
 	"skywardharp",
 	"skywardpride",
 	"skywardspine",
+	"symphonist",
 	"slingshot",
 	"snowtombedstarsilver",
 	"solarpearl",
@@ -397,6 +398,7 @@ const (
 	SkywardHarp
 	SkywardPride
 	SkywardSpine
+	SymphonistOfScents
 	Slingshot
 	SnowTombedStarsilver
 	SolarPearl

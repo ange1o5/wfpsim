@@ -275,6 +275,8 @@ var WeaponNameToKey = map[string]keys.Weapon{
 	"skywardpride":                    keys.SkywardPride,
 	"pride":                           keys.SkywardPride,
 	"skywardspine":                    keys.SkywardSpine,
+	"symphonistofscents":              keys.SymphonistOfScents,
+	"symphonist":                      keys.SymphonistOfScents,
 	"slingshot":                       keys.Slingshot,
 	"snowtombedstarsilver":            keys.SnowTombedStarsilver,
 	"snowtombed":                      keys.SnowTombedStarsilver,
