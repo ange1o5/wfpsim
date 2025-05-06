@@ -26,6 +26,9 @@ const (
 	BaizhuBurst
 	KiraraSkill
 	TravelerHydroC4
+	SigewinneC2
+	CitlaliSkill
+	LanyanShield
 	EndType
 )
 

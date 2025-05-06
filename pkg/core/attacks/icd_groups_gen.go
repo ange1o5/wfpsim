@@ -11,21 +11,34 @@ const (
 	ICDGroupBaizhuC2
 	ICDGroupCharlotteMark
 	ICDGroupCharlotteKamera
+	ICDGroupChascaShining
+	ICDGroupChascaShadowhunt
+	ICDGroupChascaTap
+	ICDGroupChascaBurst
 	ICDGroupChevreuseBurstMines
 	ICDGroupChioriSkill
+	ICDGroupCitlaliFrostfallStorm
 	ICDGroupClorindeElementalArt
 	ICDGroupColleiBurst
 	ICDGroupCynoBolt
 	ICDGroupDiluc
 	ICDGroupDoriBurst
 	ICDGroupEmilieLumidouce
+	ICDGroupEscoffierSkill
 	ICDGroupFischl
 	ICDGroupFurinaSalonSolitaire
+	ICDGroupKinichLoopShot
+	ICDGroupKinichScalespikerCannon
+	ICDGroupLanyanRingAttack
+	ICDGroupLanyanRingAttackMix
 	ICDGroupLayla
 	ICDGroupLyneyExtra
 	ICDGroupNahidaSkill
 	ICDGroupNaviaBurst
 	ICDGroupNilou
+	ICDGroupOroronElementalBurst
+	ICDGroupSigewinne
+	ICDGroupSigewinneBurst
 	ICDGroupTighnari
 	ICDGroupVenti
 	ICDGroupWandererC6
@@ -72,6 +85,22 @@ func init() {
 	ICDGroupEleApplicationSequence[ICDGroupCharlotteKamera] = []float64{1, 0, 0, 0, 1, 0, 0, 0}
 	ICDGroupDamageSequence[ICDGroupCharlotteKamera] = []float64{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 
+	ICDGroupResetTimer[ICDGroupChascaShining] = 90
+	ICDGroupEleApplicationSequence[ICDGroupChascaShining] = []float64{1, 0, 1, 0, 1, 0}
+	ICDGroupDamageSequence[ICDGroupChascaShining] = []float64{1, 1, 1, 1, 1, 1}
+
+	ICDGroupResetTimer[ICDGroupChascaShadowhunt] = 90
+	ICDGroupEleApplicationSequence[ICDGroupChascaShadowhunt] = []float64{1, 0}
+	ICDGroupDamageSequence[ICDGroupChascaShadowhunt] = []float64{1, 1}
+
+	ICDGroupResetTimer[ICDGroupChascaTap] = 90
+	ICDGroupEleApplicationSequence[ICDGroupChascaTap] = []float64{1, 0}
+	ICDGroupDamageSequence[ICDGroupChascaTap] = []float64{1, 1}
+
+	ICDGroupResetTimer[ICDGroupChascaBurst] = 90
+	ICDGroupEleApplicationSequence[ICDGroupChascaBurst] = []float64{1, 0, 1, 0, 1, 0}
+	ICDGroupDamageSequence[ICDGroupChascaBurst] = []float64{1, 1, 1, 1, 1, 1}
+
 	ICDGroupResetTimer[ICDGroupChevreuseBurstMines] = 300
 	ICDGroupEleApplicationSequence[ICDGroupChevreuseBurstMines] = []float64{1, 0, 0, 1, 0, 0, 0, 0}
 	ICDGroupDamageSequence[ICDGroupChevreuseBurstMines] = []float64{1, 1, 1, 1, 1, 1, 1, 1}
@@ -79,6 +108,10 @@ func init() {
 	ICDGroupResetTimer[ICDGroupChioriSkill] = 114
 	ICDGroupEleApplicationSequence[ICDGroupChioriSkill] = []float64{1, 0, 0, 0, 0}
 	ICDGroupDamageSequence[ICDGroupChioriSkill] = []float64{1, 1, 1, 1, 1}
+
+	ICDGroupResetTimer[ICDGroupCitlaliFrostfallStorm] = 120
+	ICDGroupEleApplicationSequence[ICDGroupCitlaliFrostfallStorm] = []float64{1, 0}
+	ICDGroupDamageSequence[ICDGroupCitlaliFrostfallStorm] = []float64{1, 1}
 
 	ICDGroupResetTimer[ICDGroupClorindeElementalArt] = 60
 	ICDGroupEleApplicationSequence[ICDGroupClorindeElementalArt] = []float64{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
@@ -104,6 +137,10 @@ func init() {
 	ICDGroupEleApplicationSequence[ICDGroupEmilieLumidouce] = []float64{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 	ICDGroupDamageSequence[ICDGroupEmilieLumidouce] = []float64{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 
+	ICDGroupResetTimer[ICDGroupEscoffierSkill] = 90
+	ICDGroupEleApplicationSequence[ICDGroupEscoffierSkill] = []float64{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+	ICDGroupDamageSequence[ICDGroupEscoffierSkill] = []float64{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+
 	ICDGroupResetTimer[ICDGroupFischl] = 300
 	ICDGroupEleApplicationSequence[ICDGroupFischl] = []float64{1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0}
 	ICDGroupDamageSequence[ICDGroupFischl] = []float64{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
@@ -111,6 +148,22 @@ func init() {
 	ICDGroupResetTimer[ICDGroupFurinaSalonSolitaire] = 1800
 	ICDGroupEleApplicationSequence[ICDGroupFurinaSalonSolitaire] = []float64{1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0}
 	ICDGroupDamageSequence[ICDGroupFurinaSalonSolitaire] = []float64{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+
+	ICDGroupResetTimer[ICDGroupKinichLoopShot] = 120
+	ICDGroupEleApplicationSequence[ICDGroupKinichLoopShot] = []float64{1, 0, 0, 0}
+	ICDGroupDamageSequence[ICDGroupKinichLoopShot] = []float64{1, 1, 1, 1, 1, 1, 1, 1}
+
+	ICDGroupResetTimer[ICDGroupKinichScalespikerCannon] = 72
+	ICDGroupEleApplicationSequence[ICDGroupKinichScalespikerCannon] = []float64{1, 0, 0, 0}
+	ICDGroupDamageSequence[ICDGroupKinichScalespikerCannon] = []float64{1, 1, 1, 1}
+
+	ICDGroupResetTimer[ICDGroupLanyanRingAttack] = 150
+	ICDGroupEleApplicationSequence[ICDGroupLanyanRingAttack] = []float64{1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0}
+	ICDGroupDamageSequence[ICDGroupLanyanRingAttack] = []float64{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+
+	ICDGroupResetTimer[ICDGroupLanyanRingAttackMix] = 150
+	ICDGroupEleApplicationSequence[ICDGroupLanyanRingAttackMix] = []float64{1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0}
+	ICDGroupDamageSequence[ICDGroupLanyanRingAttackMix] = []float64{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 
 	ICDGroupResetTimer[ICDGroupLayla] = 180
 	ICDGroupEleApplicationSequence[ICDGroupLayla] = []float64{1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0}
@@ -131,6 +184,18 @@ func init() {
 	ICDGroupResetTimer[ICDGroupNilou] = 114
 	ICDGroupEleApplicationSequence[ICDGroupNilou] = []float64{1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0}
 	ICDGroupDamageSequence[ICDGroupNilou] = []float64{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+
+	ICDGroupResetTimer[ICDGroupOroronElementalBurst] = 180
+	ICDGroupEleApplicationSequence[ICDGroupOroronElementalBurst] = []float64{1, 0, 0, 0, 0, 0, 0, 0, 0}
+	ICDGroupDamageSequence[ICDGroupOroronElementalBurst] = []float64{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+
+	ICDGroupResetTimer[ICDGroupSigewinne] = 120
+	ICDGroupEleApplicationSequence[ICDGroupSigewinne] = []float64{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+	ICDGroupDamageSequence[ICDGroupSigewinne] = []float64{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+
+	ICDGroupResetTimer[ICDGroupSigewinneBurst] = 114
+	ICDGroupEleApplicationSequence[ICDGroupSigewinneBurst] = []float64{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+	ICDGroupDamageSequence[ICDGroupSigewinneBurst] = []float64{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 
 	ICDGroupResetTimer[ICDGroupTighnari] = 150
 	ICDGroupEleApplicationSequence[ICDGroupTighnari] = []float64{1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0}

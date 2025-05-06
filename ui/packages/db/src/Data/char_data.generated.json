@@ -311,6 +311,23 @@
       },
       "name_text_hash_map ": "3831162130"
     },
+    "chasca": {
+      "id": 10000104,
+      "key": "chasca",
+      "rarity": "QUALITY_ORANGE",
+      "body": "BODY_LADY",
+      "region": "ASSOC_TYPE_NATLAN",
+      "element": "Wind",
+      "weapon_class": "WEAPON_BOW",
+      "icon_name": "UI_AvatarIcon_Chasca",
+      "skill_details": {
+        "skill": 11042,
+        "burst": 11045,
+        "attack": 11041,
+        "burst_energy_cost": 60
+      },
+      "name_text_hash_map ": "3746229466"
+    },
     "chevreuse": {
       "id": 10000090,
       "key": "chevreuse",
@@ -361,6 +378,23 @@
         "burst_energy_cost": 40
       },
       "name_text_hash_map ": "2876340530"
+    },
+    "citlali": {
+      "id": 10000107,
+      "key": "citlali",
+      "rarity": "QUALITY_ORANGE",
+      "body": "BODY_GIRL",
+      "region": "ASSOC_TYPE_NATLAN",
+      "element": "Ice",
+      "weapon_class": "WEAPON_CATALYST",
+      "icon_name": "UI_AvatarIcon_Citlali",
+      "skill_details": {
+        "skill": 11072,
+        "burst": 11075,
+        "attack": 11071,
+        "burst_energy_cost": 60
+      },
+      "name_text_hash_map ": "1197975042"
     },
     "clorinde": {
       "id": 10000098,
@@ -495,6 +529,23 @@
         "burst": 10995,
         "attack": 10991,
         "burst_energy_cost": 50
+      },
+      "name_text_hash_map ": "1705786122"
+    },
+    "escoffier": {
+      "id": 10000112,
+      "key": "escoffier",
+      "rarity": "QUALITY_ORANGE",
+      "body": "BODY_GIRL",
+      "region": "ASSOC_TYPE_FONTAINE",
+      "element": "Ice",
+      "weapon_class": "WEAPON_POLE",
+      "icon_name": "UI_AvatarIcon_Escoffier",
+      "skill_details": {
+        "skill": 10992,
+        "burst": 10995,
+        "attack": 10991,
+        "burst_energy_cost": 60
       },
       "name_text_hash_map ": "1705786122"
     },
@@ -668,6 +719,23 @@
       },
       "name_text_hash_map ": "1940919994"
     },
+    "iansan": {
+      "id": 10000110,
+      "key": "iansan",
+      "rarity": "QUALITY_PURPLE",
+      "body": "BODY_LOLI",
+      "region": "ASSOC_TYPE_NATLAN",
+      "element": "Electric",
+      "weapon_class": "WEAPON_POLE",
+      "icon_name": "UI_AvatarIcon_Iansan",
+      "skill_details": {
+        "skill": 11102,
+        "burst": 11105,
+        "attack": 11101,
+        "burst_energy_cost": 70
+      },
+      "name_text_hash_map ": "3120492514"
+    },
     "itto": {
       "id": 10000057,
       "key": "itto",
@@ -770,6 +838,23 @@
       },
       "name_text_hash_map ": "1864015138"
     },
+    "kinich": {
+      "id": 10000101,
+      "key": "kinich",
+      "rarity": "QUALITY_ORANGE",
+      "body": "BODY_BOY",
+      "region": "ASSOC_TYPE_NATLAN",
+      "element": "Grass",
+      "weapon_class": "WEAPON_CLAYMORE",
+      "icon_name": "UI_AvatarIcon_Kinich",
+      "skill_details": {
+        "skill": 11012,
+        "burst": 11015,
+        "attack": 11011,
+        "burst_energy_cost": 70
+      },
+      "name_text_hash_map ": "4172712634"
+    },
     "kirara": {
       "id": 10000061,
       "key": "kirara",
@@ -837,6 +922,23 @@
         "burst_energy_cost": 60
       },
       "name_text_hash_map ": "1940821986"
+    },
+    "lanyan": {
+      "id": 10000108,
+      "key": "lanyan",
+      "rarity": "QUALITY_PURPLE",
+      "body": "BODY_GIRL",
+      "region": "ASSOC_TYPE_LIYUE",
+      "element": "Wind",
+      "weapon_class": "WEAPON_CATALYST",
+      "icon_name": "UI_AvatarIcon_Lanyan",
+      "skill_details": {
+        "skill": 11082,
+        "burst": 11085,
+        "attack": 11081,
+        "burst_energy_cost": 60
+      },
+      "name_text_hash_map ": "1888132250"
     },
     "layla": {
       "id": 10000074,
@@ -996,6 +1098,22 @@
       },
       "name_text_hash_map ": "2472444970"
     },
+    "mavuika": {
+      "id": 10000106,
+      "key": "mavuika",
+      "rarity": "QUALITY_ORANGE",
+      "body": "BODY_LADY",
+      "region": "ASSOC_TYPE_NATLAN",
+      "element": "Fire",
+      "weapon_class": "WEAPON_CLAYMORE",
+      "icon_name": "UI_AvatarIcon_Mavuika",
+      "skill_details": {
+        "skill": 11062,
+        "burst": 11065,
+        "attack": 11061
+      },
+      "name_text_hash_map ": "113398050"
+    },
     "mika": {
       "id": 10000080,
       "key": "mika",
@@ -1149,6 +1267,23 @@
       },
       "name_text_hash_map ": "1921418842"
     },
+    "ororon": {
+      "id": 10000105,
+      "key": "ororon",
+      "rarity": "QUALITY_PURPLE",
+      "body": "BODY_MALE",
+      "region": "ASSOC_TYPE_NATLAN",
+      "element": "Electric",
+      "weapon_class": "WEAPON_BOW",
+      "icon_name": "UI_AvatarIcon_Olorun",
+      "skill_details": {
+        "skill": 30502,
+        "burst": 30505,
+        "attack": 30501,
+        "burst_energy_cost": 60
+      },
+      "name_text_hash_map ": "1198350762"
+    },
     "qiqi": {
       "id": 10000035,
       "key": "qiqi",
@@ -1284,6 +1419,23 @@
         "burst_energy_cost": 80
       },
       "name_text_hash_map ": "334242634"
+    },
+    "sigewinne": {
+      "id": 10000095,
+      "key": "sigewinne",
+      "rarity": "QUALITY_ORANGE",
+      "body": "BODY_LOLI",
+      "region": "ASSOC_TYPE_FONTAINE",
+      "element": "Water",
+      "weapon_class": "WEAPON_BOW",
+      "icon_name": "UI_AvatarIcon_Sigewinne",
+      "skill_details": {
+        "skill": 10952,
+        "burst": 10955,
+        "attack": 10951,
+        "burst_energy_cost": 70
+      },
+      "name_text_hash_map ": "781488962"
     },
     "sucrose": {
       "id": 10000043,
@@ -1454,6 +1606,23 @@
         "burst_energy_cost": 70
       },
       "name_text_hash_map ": "1021947690"
+    },
+    "xilonen": {
+      "id": 10000103,
+      "key": "xilonen",
+      "rarity": "QUALITY_ORANGE",
+      "body": "BODY_LADY",
+      "region": "ASSOC_TYPE_NATLAN",
+      "element": "Rock",
+      "weapon_class": "WEAPON_SWORD_ONE_HAND",
+      "icon_name": "UI_AvatarIcon_Xilonen",
+      "skill_details": {
+        "skill": 11032,
+        "burst": 11035,
+        "attack": 11031,
+        "burst_energy_cost": 60
+      },
+      "name_text_hash_map ": "2515292882"
     },
     "xingqiu": {
       "id": 10000025,

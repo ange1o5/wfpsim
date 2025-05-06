@@ -22,6 +22,12 @@
   "ashgravendrinkinghorn": [
     "ashgraven"
   ],
+  "astralvulturescrimsonplumage": [
+    "avcp"
+  ],
+  "athousandblazingsuns": [
+    "tbs"
+  ],
   "athousandfloatingdreams": [
     "thousandfloatingdreams",
     "tfd"
@@ -49,6 +55,7 @@
   "bloodtaintedgreatsword": [
     "bloodtainted"
   ],
+  "calamityofeshu": [],
   "calamityqueller": [
     "calamity"
   ],
@@ -103,6 +110,9 @@
   "fadingtwilight": [
     "twilight"
   ],
+  "fangofthemountainking": [
+    "fotmk"
+  ],
   "favoniuscodex": [
     "favcodex"
   ],
@@ -132,6 +142,7 @@
     "fleuve",
     "pipe"
   ],
+  "flowerwreathedfeathers": [],
   "fluteofezpitzal": [
     "ezpital"
   ],
@@ -231,6 +242,7 @@
     "waltz"
   ],
   "moonpiercer": [],
+  "mountainbracingbolt": [],
   "mouunsmoon": [
     "mouun",
     "mouuns"
@@ -373,6 +385,10 @@
     "scarlet",
     "sss"
   ],
+  "starcallerswatch": [
+    "scw"
+  ],
+  "sturdybone": [],
   "summitshaper": [
     "summit"
   ],
@@ -382,6 +398,9 @@
   ],
   "swordofnarzissenkreuz": [
     "narzissenkreuz"
+  ],
+  "tamayurateinoohanashi": [
+    "tamayuratei"
   ],
   "talkingstick": [],
   "thealleyflash": [
@@ -450,6 +469,7 @@
     "misugiri"
   ],
   "verdict": [],
+  "vividnotions": [],
   "vortexvanquisher": [
     "vortex"
   ],
@@ -460,6 +480,7 @@
   "wavebreakersfin": [
     "wavebreaker"
   ],
+  "waveridingwhirl": [],
   "whiteblind": [],
   "whiteirongreatsword": [],
   "whitetassel": [],

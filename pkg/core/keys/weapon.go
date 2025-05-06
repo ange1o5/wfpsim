@@ -42,6 +42,8 @@ var weaponNames = []string{
 	"aquasimulacra",
 	"aquilafavonia",
 	"ashgravendrinkinghorn",
+	"astralvulturescrimsonplumage",
+	"athousandblazingsuns",
 	"athousandfloatingdreams",
 	"balladoftheboundlessblue",
 	"balladofthefjords",
@@ -54,6 +56,7 @@ var weaponNames = []string{
 	"blackcliffwarbow",
 	"blacktassel",
 	"bloodtaintedgreatsword",
+	"calamityofeshu",
 	"calamityqueller",
 	"cashflowsupervision",
 	"chainbreaker",
@@ -80,6 +83,7 @@ var weaponNames = []string{
 	"everlastingmoonglow",
 	"eyeofperception",
 	"fadingtwilight",
+	"fangofthemountainking",
 	"favoniuscodex",
 	"favoniusgreatsword",
 	"favoniuslance",
@@ -90,6 +94,7 @@ var weaponNames = []string{
 	"filletblade",
 	"finaleofthedeep",
 	"fleuvecendreferryman",
+	"flowerwreathedfeathers",
 	"fluteofezpitzal",
 	"flowingpurity",
 	"footprintoftherainbow",
@@ -132,6 +137,7 @@ var weaponNames = []string{
 	"mistsplitterreforged",
 	"mitternachtswaltz",
 	"moonpiercer",
+	"mountainbracingbolt",
 	"mouunsmoon",
 	"oathsworneye",
 	"oldmercspal",
@@ -181,6 +187,7 @@ var weaponNames = []string{
 	"skywardharp",
 	"skywardpride",
 	"skywardspine",
+	"symphonist",
 	"slingshot",
 	"snowtombedstarsilver",
 	"solarpearl",
@@ -189,11 +196,14 @@ var weaponNames = []string{
 	"splendoroftranquilwaters",
 	"staffofhoma",
 	"staffofthescarletsands",
+	"starcallerswatch",
+	"sturdybone",
 	"summitshaper",
 	"surfsup",
 	"swordofdescension",
 	"swordofnarzissenkreuz",
 	"talkingstick",
+	"tamayurateinoohanashi",
 	"thealleyflash",
 	"thebell",
 	"theblacksword",
@@ -216,10 +226,12 @@ var weaponNames = []string{
 	"ultimateoverlordsmegamagicsword",
 	"urakumisugiri",
 	"verdict",
+	"vividnotions",
 	"vortexvanquisher",
 	"wanderingevenstar",
 	"wastergreatsword",
 	"wavebreakersfin",
+	"waveridingwhirl",
 	"whiteblind",
 	"whiteirongreatsword",
 	"whitetassel",
@@ -241,6 +253,8 @@ const (
 	AquaSimulacra
 	AquilaFavonia
 	AshGravenDrinkingHorn
+	AstralVulturesCrimsonPlumage
+	AThousandBlazingSuns
 	AThousandFloatingDreams
 	BalladOfTheBoundlessBlue
 	BalladOfTheFjords
@@ -253,6 +267,7 @@ const (
 	BlackcliffWarbow
 	BlackTassel
 	BloodtaintedGreatsword
+	CalamityOfEshu
 	CalamityQueller
 	CashflowSupervision
 	ChainBreaker
@@ -279,6 +294,7 @@ const (
 	EverlastingMoonglow
 	EyeOfPerception
 	FadingTwilight
+	FangOfTheMountainKing
 	FavoniusCodex
 	FavoniusGreatsword
 	FavoniusLance
@@ -289,6 +305,7 @@ const (
 	FilletBlade
 	FinaleOfTheDeep
 	FleuveCendreFerryman
+	FlowerWreathedFeathers
 	FluteOfEzpitzal
 	FlowingPurity
 	FootprintOfTheRainbow
@@ -331,6 +348,7 @@ const (
 	MistsplitterReforged
 	MitternachtsWaltz
 	Moonpiercer
+	MountainBracingBolt
 	MouunsMoon
 	OathswornEye
 	OldMercsPal
@@ -380,6 +398,7 @@ const (
 	SkywardHarp
 	SkywardPride
 	SkywardSpine
+	SymphonistOfScents
 	Slingshot
 	SnowTombedStarsilver
 	SolarPearl
@@ -388,11 +407,14 @@ const (
 	SplendorOfTranquilWaters
 	StaffOfHoma
 	StaffOfTheScarletSands
+	StarcallersWatch
+	SturdyBone
 	SummitShaper
 	SurfsUp
 	SwordOfDescension
 	SwordOfNarzissenkreuz
 	TalkingStick
+	TamayurateiNoOhanashi
 	TheAlleyFlash
 	TheBell
 	TheBlackSword
@@ -415,10 +437,12 @@ const (
 	UltimateOverlordsMegaMagicSword
 	UrakuMisugiri
 	Verdict
+	VividNotions
 	VortexVanquisher
 	WanderingEvenstar
 	WasterGreatsword
 	WavebreakersFin
+	WaveridingWhirl
 	Whiteblind
 	WhiteIronGreatsword
 	WhiteTassel
