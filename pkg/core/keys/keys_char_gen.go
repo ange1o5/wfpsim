@@ -44,7 +44,6 @@ const (
 	Gorou
 	Heizou
 	Hutao
-	Iansan
 	Itto
 	Jean
 	Kaeya
@@ -210,6 +209,10 @@ func init() {
 	charPrettyName[Emilie] = "Emilie"
 	CharKeyToEle[Emilie] = attributes.Dendro
 
+	charNames[Escoffier] = "escoffier"
+	charPrettyName[Escoffier] = "Escoffier"
+	CharKeyToEle[Escoffier] = attributes.Cryo
+
 	charNames[Eula] = "eula"
 	charPrettyName[Eula] = "Eula"
 	CharKeyToEle[Eula] = attributes.Cryo
@@ -249,10 +252,6 @@ func init() {
 	charNames[Hutao] = "hutao"
 	charPrettyName[Hutao] = "Hutao"
 	CharKeyToEle[Hutao] = attributes.Pyro
-
-	charNames[Iansan] = "iansan"
-	charPrettyName[Iansan] = "Iansan"
-	CharKeyToEle[Iansan] = attributes.Electro
 
 	charNames[Itto] = "itto"
 	charPrettyName[Itto] = "Itto"

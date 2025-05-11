@@ -187,7 +187,6 @@ var weaponNames = []string{
 	"skywardharp",
 	"skywardpride",
 	"skywardspine",
-	"symphonist",
 	"slingshot",
 	"snowtombedstarsilver",
 	"solarpearl",
@@ -202,6 +201,7 @@ var weaponNames = []string{
 	"surfsup",
 	"swordofdescension",
 	"swordofnarzissenkreuz",
+	"symphonistofscents",
 	"talkingstick",
 	"tamayurateinoohanashi",
 	"thealleyflash",
@@ -398,7 +398,6 @@ const (
 	SkywardHarp
 	SkywardPride
 	SkywardSpine
-	SymphonistOfScents
 	Slingshot
 	SnowTombedStarsilver
 	SolarPearl
@@ -413,6 +412,7 @@ const (
 	SurfsUp
 	SwordOfDescension
 	SwordOfNarzissenkreuz
+	SymphonistOfScents
 	TalkingStick
 	TamayurateiNoOhanashi
 	TheAlleyFlash
