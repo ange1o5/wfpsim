@@ -20,10 +20,10 @@ const (
 )
 
 func init() {
-	burstFrames = frames.InitAbilSlice(115) // Q -> N1
-	burstFrames[action.ActionSwap] = 109
+	burstFrames = frames.InitAbilSlice(101)
+	burstFrames[action.ActionSwap] = 101
 
-	burstSkillFrames = frames.InitAbilSlice(46) // Q -> E
+	burstSkillFrames = frames.InitAbilSlice(39)
 }
 func (c *char) Burst(p map[string]int) (action.Info, error) {
 	if c.StatusIsActive(skillKey) {
@@ -118,7 +118,7 @@ func (c *char) BurstExtinction(p map[string]int) (action.Info, error) {
 		c.burstVoids = count
 		c.absorbVoidRift()
 	}, 30)
-
+	c.c2OnBurstExtinction()
 	c.SetCDWithDelay(action.ActionBurst, 15*60, 0)
 
 	return action.Info{

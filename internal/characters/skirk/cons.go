@@ -9,8 +9,9 @@ import (
 	"github.com/genshinsim/gcsim/pkg/modifier"
 )
 
-var c4Atkp = []float64{0.0, 0.1, 0.2, 0.5}
+var c4Atkp = []float64{0.0, 0.1, 0.2, 0.4}
 
+const c2Key = "skirk-c2"
 const c6Dur = 15 * 60
 
 func (c *char) c1() {
@@ -41,35 +42,37 @@ func (c *char) c2OnSkill() {
 	if c.Base.Cons < 2 {
 		return
 	}
-	c.AddSerpentsSubtlety(c.Base.Key.String()+"-c2", 12.0)
+	c.AddSerpentsSubtlety(c.Base.Key.String()+"-c2", 10.0)
 }
 
 func (c *char) c2OnBurstRuin() float64 {
 	if c.Base.Cons < 2 {
 		return 0
 	}
-	return 12
+	return 10
 }
 
 func (c *char) c2Init() {
 	if c.Base.Cons < 2 {
 		return
 	}
-	mDmg := make([]float64, attributes.EndStatType)
-	mDmg[attributes.DmgP] = 0.6
-	c.AddAttackMod(character.AttackMod{
-		Base: modifier.NewBase("skirk-c2-dmg", -1),
-		Amount: func(atk *combat.AttackEvent, t combat.Target) ([]float64, bool) {
-			switch atk.Info.AttackTag {
-			case attacks.AttackTagNormal:
-			default:
-				return nil, false
-			}
+	c.c2Atk = make([]float64, attributes.EndStatType)
+	c.c2Atk[attributes.ATKP] = 0.7
+}
 
+func (c *char) c2OnBurstExtinction() {
+	if c.Base.Cons < 2 {
+		return
+	}
+
+	c.AddStatMod(character.StatMod{
+		Base:         modifier.NewBase(c2Key, 12.5*60),
+		AffectedStat: attributes.ATKP,
+		Amount: func() ([]float64, bool) {
 			if !c.StatusIsActive(skillKey) {
 				return nil, false
 			}
-			return mDmg, true
+			return c.c2Atk, true
 		},
 	})
 }
@@ -104,7 +107,7 @@ func (c *char) c6OnBurstRuin() {
 	ai := combat.AttackInfo{
 		ActorIndex: c.Index,
 		Abil:       "Havoc: Sever (Burst)",
-		Mult:       6,
+		Mult:       7.5,
 		AttackTag:  attacks.AttackTagElementalBurst,
 		ICDTag:     attacks.ICDTagElementalBurst,
 		ICDGroup:   attacks.ICDGroupDefault,
@@ -158,7 +161,7 @@ func (c *char) c6OnAttackCB() func(a combat.AttackCB) {
 		ai := combat.AttackInfo{
 			ActorIndex: c.Index,
 			Abil:       "Havoc: Sever (Normal)",
-			Mult:       1.5,
+			Mult:       1.8,
 			AttackTag:  attacks.AttackTagNormal,
 			ICDTag:     attacks.ICDTagNormalAttack,
 			ICDGroup:   attacks.ICDGroupDefault,

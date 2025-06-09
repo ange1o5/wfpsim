@@ -44,6 +44,7 @@ const (
 	Gorou
 	Heizou
 	Hutao
+	Iansan
 	Itto
 	Jean
 	Kaeya

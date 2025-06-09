@@ -5,25 +5,25 @@ import (
 	"github.com/genshinsim/gcsim/pkg/core/action"
 	"github.com/genshinsim/gcsim/pkg/core/attributes"
 	"github.com/genshinsim/gcsim/pkg/core/combat"
+	"github.com/genshinsim/gcsim/pkg/core/event"
 	"github.com/genshinsim/gcsim/pkg/core/glog"
-	"github.com/genshinsim/gcsim/pkg/core/targets"
+	"github.com/genshinsim/gcsim/pkg/enemy"
 )
 
 var skillFrames []int
+var skillHoldFrames []int
 
 const (
 	maxSerpentsSubtlety = 100
-	skillHitmark        = 28
+	skillGainSS         = 25
 	skillKey            = "seven-phase-slash"
 	particleICDKey      = "skirk-particle-icd"
+	skillHoldGainSS     = 16
 )
 
 func init() {
-	skillFrames = frames.InitAbilSlice(48) // E -> N1
-	skillFrames[action.ActionBurst] = 48   // E -> Q
-	skillFrames[action.ActionDash] = 25    // E -> D
-	skillFrames[action.ActionJump] = 26    // E -> J
-	skillFrames[action.ActionSwap] = 49    // E -> Swap
+	skillFrames = frames.InitAbilSlice(34)
+	skillHoldFrames = frames.InitAbilSlice(16)
 }
 
 func (c *char) Skill(p map[string]int) (action.Info, error) {
@@ -38,7 +38,7 @@ func (c *char) skillTap() (action.Info, error) {
 	if c.StatusIsActive(skillKey) {
 		c.exitSkillState(c.skillSrc)
 	} else {
-		c.QueueCharTask(func() { c.enterSkillState() }, 26)
+		c.QueueCharTask(func() { c.enterSkillState() }, skillGainSS)
 	}
 
 	return action.Info{
@@ -65,9 +65,9 @@ func (c *char) exitSkillState(src int) {
 	}
 	c.Core.Log.NewEventBuildMsg(glog.LogCharacterEvent, c.Index, "exit skirk skill").Write("src", src)
 	c.skillSrc = -1
+	c.DeleteAttackMod(c2Key)
 	c.DeleteStatus(skillKey)
-	c.DeleteStatus(particleICDKey)
-	c.SetCD(action.ActionSkill, 9*60)
+	c.SetCD(action.ActionSkill, 8*60)
 	c.ConsumeSerpentsSubtlety(0, c.Base.Key.String()+"-skill-exit")
 }
 
@@ -91,31 +91,49 @@ func (c *char) skillHold(p map[string]int) (action.Info, error) {
 	if duration < 10 {
 		duration = 10
 	}
-	c.AddSerpentsSubtlety(c.Base.Key.String()+"-skill-hold", 45.0)
-	c.c2OnSkill()
 
-	c.absorbVoidRift()
-	c.SetCDWithDelay(action.ActionSkill, 9*60, duration)
+	c.QueueCharTask(func() {
+		c.AddSerpentsSubtlety(c.Base.Key.String()+"-skill-hold", 45.0)
+		c.c2OnSkill()
+
+		c.absorbVoidRift()
+	}, skillHoldGainSS)
+
+	c.SetCDWithDelay(action.ActionSkill, 8*60, duration)
 
 	return action.Info{
 		Frames: func(next action.Action) int {
-			return skillFrames[next] + duration
+			return skillHoldFrames[next] + duration
 		},
-		AnimationLength: skillFrames[action.InvalidAction] + duration,
-		CanQueueAfter:   skillFrames[action.ActionDash] + duration, // earliest cancel is before skillHitmark
+		AnimationLength: skillHoldFrames[action.InvalidAction] + duration,
+		CanQueueAfter:   skillHoldFrames[action.ActionDash] + duration, // earliest cancel is before skillHitmark
 		State:           action.SkillState,
 	}, nil
 }
 
-func (c *char) particleCB(a combat.AttackCB) {
-	if a.Target.Type() != targets.TargettableEnemy {
-		return
-	}
-	if c.StatusIsActive(particleICDKey) {
-		return
-	}
-	c.AddStatus(particleICDKey, 12.5*60, false)
+func (c *char) particleInit() {
+	c.Core.Events.Subscribe(event.OnEnemyDamage, func(args ...interface{}) bool {
+		atk := args[1].(*combat.AttackEvent)
+		_, ok := args[0].(*enemy.Enemy)
+		if !ok {
+			return false
+		}
+		if atk.Info.ActorIndex != c.Index {
+			return false
+		}
 
-	count := 4.0
-	c.Core.QueueParticle(c.Base.Key.String(), count, attributes.Cryo, c.ParticleDelay)
+		if atk.Info.Element != attributes.Cryo {
+			return false
+		}
+
+		if c.StatusIsActive(particleICDKey) {
+			return false
+		}
+		c.AddStatus(particleICDKey, 15*60, false)
+
+		count := 4.0
+		c.Core.QueueParticle(c.Base.Key.String(), count, attributes.Cryo, c.ParticleDelay)
+
+		return false
+	}, c.Base.Key.String()+"-particles")
 }
