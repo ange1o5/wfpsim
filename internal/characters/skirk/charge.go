@@ -84,12 +84,6 @@ func (c *char) ChargeAttackSkill(p map[string]int) (action.Info, error) {
 	}
 
 	for i, mult := range skillCharge {
-		var cb func(a combat.AttackCB)
-		if i == 2 {
-			cb = c.absorbVoidRiftCB
-		} else {
-			cb = nil
-		}
 		ai.Mult = mult[c.TalentLvlSkill()]
 		ai.Abil = fmt.Sprintf("Charge (Skill) %v", i)
 		c.Core.QueueAttack(
@@ -101,7 +95,7 @@ func (c *char) ChargeAttackSkill(p map[string]int) (action.Info, error) {
 			),
 			chargeSkillHitmarks[i],
 			chargeSkillHitmarks[i],
-			cb,
+			c.absorbVoidRiftCB,
 		)
 	}
 

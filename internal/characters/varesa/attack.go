@@ -16,7 +16,6 @@ var (
 	attackFrames          [][]int
 	attackHitmarks        = []int{28, 7, 33}
 	attackHitlagHaltFrame = []float64{0, 0, 0.03}
-	attackHitlagFactor    = []float64{0, 0, 0.01}
 	attackHitboxes        = [][]float64{{2, 3}, {2, 3}, {2.2}}
 	attackOffsets         = []float64{-0.2, -0.2, 1.1}
 
