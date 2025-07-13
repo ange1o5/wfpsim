@@ -115,7 +115,9 @@ func (c *char) Condition(fields []string) (any, error) {
 
 func (c *char) AnimationStartDelay(k model.AnimationDelayKey) int {
 	if k == model.AnimationXingqiuN0StartDelay {
-		return 6
+		return 12
+	} else if k == model.AnimationYelanN0StartDelay {
+		return 3
 	}
 	return c.Character.AnimationStartDelay(k)
 }

@@ -15,15 +15,25 @@ var skillHoldFrames []int
 
 const (
 	maxSerpentsSubtlety = 100
-	skillGainSS         = 25
+	skillTapGainSS      = 25
 	skillKey            = "seven-phase-slash"
 	particleICDKey      = "skirk-particle-icd"
-	skillHoldGainSS     = 16
+	skillHoldGainSS     = 20
 )
 
 func init() {
-	skillFrames = frames.InitAbilSlice(34)
-	skillHoldFrames = frames.InitAbilSlice(16)
+	skillFrames = frames.InitAbilSlice(21) // E -> N1
+	skillFrames[action.ActionBurst] = 31   // E -> Q
+	skillFrames[action.ActionDash] = 29    // E -> D
+	skillFrames[action.ActionJump] = 30    // E -> J
+	skillFrames[action.ActionWalk] = 43    // E -> Walk
+	skillFrames[action.ActionSwap] = 29    // E -> Swap
+
+	skillHoldFrames = frames.InitAbilSlice(18) // Eh -> N1
+	skillHoldFrames[action.ActionSkill] = 16   // Eh -> E (Exit)
+	skillHoldFrames[action.ActionBurst] = 17   // Eh -> Q
+	skillHoldFrames[action.ActionDash] = 17    // Eh -> D
+	skillHoldFrames[action.ActionSwap] = 15    // Eh -> Swap
 }
 
 func (c *char) Skill(p map[string]int) (action.Info, error) {
@@ -38,7 +48,7 @@ func (c *char) skillTap() (action.Info, error) {
 	if c.StatusIsActive(skillKey) {
 		c.exitSkillState(c.skillSrc)
 	} else {
-		c.QueueCharTask(func() { c.enterSkillState() }, skillGainSS)
+		c.QueueCharTask(func() { c.enterSkillState() }, skillTapGainSS)
 	}
 
 	return action.Info{

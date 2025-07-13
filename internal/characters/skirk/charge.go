@@ -12,16 +12,26 @@ import (
 )
 
 var (
-	chargeFrames   []int
-	chargeHitmarks = []int{7, 11, 17} // CA-1 and CA-2 hit at the same time
-	chargeOffsets  = []float64{1, 1.3, 1.3}
+	chargeFrames        []int
+	chargeSkillFrames   []int
+	chargeHitmarks      = []int{27, 27 + 8, 27 + 8 + 8}
+	chargeSkillHitmarks = []int{28, 28 + 9, 28 + 9 + 9}
+	chargeOffsets       = []float64{1, 1.3, 1.3}
 )
 
 func init() {
-	chargeFrames = frames.InitAbilSlice(46) // CA -> N1
-	chargeFrames[action.ActionDash] = 25    // CA -> D
-	chargeFrames[action.ActionJump] = 24    // CA -> J
-	chargeFrames[action.ActionSwap] = 30    // CA -> Swap
+	chargeFrames = frames.InitAbilSlice(43) // CA -> N1
+	chargeFrames[action.ActionDash] = 28    // CA -> D
+	chargeFrames[action.ActionJump] = 28    // CA -> J
+	chargeFrames[action.ActionSwap] = 42    // CA -> Swap
+	chargeFrames[action.ActionWalk] = 53    // CA -> Walk
+
+	chargeSkillFrames = frames.InitAbilSlice(54) // CA -> N1
+	chargeSkillFrames[action.ActionDash] = 28    // CA -> D
+	chargeSkillFrames[action.ActionJump] = 28    // CA -> J
+	chargeSkillFrames[action.ActionWalk] = 52    // CA -> Walk
+	chargeSkillFrames[action.ActionSwap] = 42    // CA -> Swap
+	chargeSkillFrames[action.ActionBurst] = 43   // CA -> Burst
 }
 
 func (c *char) ChargeAttack(p map[string]int) (action.Info, error) {
@@ -74,6 +84,12 @@ func (c *char) ChargeAttackSkill(p map[string]int) (action.Info, error) {
 	}
 
 	for i, mult := range skillCharge {
+		var cb func(a combat.AttackCB)
+		if i == 2 {
+			cb = c.absorbVoidRiftCB
+		} else {
+			cb = nil
+		}
 		ai.Mult = mult[c.TalentLvlSkill()]
 		ai.Abil = fmt.Sprintf("Charge (Skill) %v", i)
 		c.Core.QueueAttack(
@@ -83,9 +99,9 @@ func (c *char) ChargeAttackSkill(p map[string]int) (action.Info, error) {
 				geometry.Point{Y: chargeOffsets[i]},
 				2.2,
 			),
-			chargeHitmarks[i],
-			chargeHitmarks[i],
-			c.absorbVoidRiftCB,
+			chargeSkillHitmarks[i],
+			chargeSkillHitmarks[i],
+			cb,
 		)
 	}
 
