@@ -21,7 +21,7 @@ var (
 	attackFanAngles       = [][]float64{{360}, {360}, {30, 360}, {360}, {360}}
 
 	attackSkillFrames          [][]int
-	attackSkillHitmarks        = [][]int{{11}, {9}, {10, 22}, {12, 29}, {25}}
+	attackSkillHitmarks        = [][]int{{11}, {9}, {10, 22}, {11, 27}, {25}}
 	attackSkillHitlag          = [][]bool{{false}, {true}, {true, false}, {false, false}, {true}}
 	attackSkillHitlagHaltFrame = [][]float64{{0.00}, {0.03}, {0.03, 0.00}, {0.00, 0.0}, {0.06}}
 	attackSkillHitlagFactor    = [][]float64{{0.01}, {0.01}, {0.05, 0.05}, {0.05, 0.05}, {0.01}}
@@ -59,18 +59,18 @@ func init() {
 
 	attackSkillFrames[0] = frames.InitNormalCancelSlice(attackSkillHitmarks[0][0], 240) // N1 -> W
 	attackSkillFrames[0][action.ActionCharge] = 16                                      // N1 -> CA
-	attackSkillFrames[0][action.ActionAttack] = 16                                      // N1 -> N2
+	attackSkillFrames[0][action.ActionAttack] = 12                                      // N1 -> N2
 
 	attackSkillFrames[1] = frames.InitNormalCancelSlice(attackSkillHitmarks[1][0], 240) // N2 -> W
 	attackSkillFrames[1][action.ActionAttack] = 21                                      // N2 -> N3
 	attackSkillFrames[1][action.ActionCharge] = 21                                      // N2 -> CA
 
 	attackSkillFrames[2] = frames.InitNormalCancelSlice(attackSkillHitmarks[2][1], 240) // N3 -> W
-	attackSkillFrames[2][action.ActionAttack] = 35                                      // N3 -> N4
+	attackSkillFrames[2][action.ActionAttack] = 31                                      // N3 -> N4
 	attackSkillFrames[2][action.ActionCharge] = 35                                      // N3 -> CA
 
 	attackSkillFrames[3] = frames.InitNormalCancelSlice(attackSkillHitmarks[3][1], 240) // N4 -> W
-	attackSkillFrames[3][action.ActionAttack] = 36                                      // N4 -> N5
+	attackSkillFrames[3][action.ActionAttack] = 32                                      // N4 -> N5
 	attackSkillFrames[3][action.ActionCharge] = 36                                      // N4 -> CA
 
 	attackSkillFrames[4] = frames.InitNormalCancelSlice(attackSkillHitmarks[4][0], 240) // N5 -> W

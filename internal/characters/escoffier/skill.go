@@ -1,12 +1,14 @@
 package escoffier
 
 import (
+	"math"
+
 	"github.com/genshinsim/gcsim/internal/frames"
 	"github.com/genshinsim/gcsim/pkg/core/action"
 	"github.com/genshinsim/gcsim/pkg/core/attacks"
 	"github.com/genshinsim/gcsim/pkg/core/attributes"
 	"github.com/genshinsim/gcsim/pkg/core/combat"
-	"github.com/genshinsim/gcsim/pkg/core/glog"
+	"github.com/genshinsim/gcsim/pkg/core/geometry"
 	"github.com/genshinsim/gcsim/pkg/core/targets"
 )
 
@@ -14,22 +16,37 @@ var skillFrames []int
 
 const (
 	skillInitHitmark    = 23 // Initial Hit
-	skillAlignedHitmark = 60
-
-	skillInterval      = 60
-	skillAlignedICDKey = "escoffier-aligned-icd"
-	skillKey           = "escoffier-skill"
-	particleICDKey     = "escoffier-particle-icd"
+	skillAlignedHitmark = 83
+	skillTicks          = 21
+	skillInterval       = 58.5
+	skillFirstTickDelay = 148
+	skillAlignedICDKey  = "escoffier-aligned-icd"
+	skillKey            = "escoffier-skill"
+	particleICDKey      = "escoffier-particle-icd"
+	skillAlignedICD     = 10 * 60
+	skillCD             = 15 * 60
 )
 
-var skillAlignedICD = int(arkheCD[0]) * 60
-
 func init() {
-	skillFrames = frames.InitAbilSlice(38) // E -> Q
+	skillFrames = frames.InitAbilSlice(35) // E -> D/J
+	skillFrames[action.ActionAttack] = 32
+	skillFrames[action.ActionBurst] = 32
+	skillFrames[action.ActionWalk] = 32
+	skillFrames[action.ActionSwap] = 31
+}
+
+func ceil(x float64) int {
+	return int(math.Ceil(x))
 }
 
 func (c *char) Skill(p map[string]int) (action.Info, error) {
-	skillTicks := int(skillDur[c.TalentLvlSkill()]*60) / skillInterval
+	travel, ok := p["travel"]
+	if !ok {
+		travel = 5
+	}
+	c.skillTravel = travel
+
+	skillPos := c.Core.Combat.Player()
 	ai := combat.AttackInfo{
 		ActorIndex: c.Index,
 		Abil:       "Low-Temperature Cooking",
@@ -41,48 +58,42 @@ func (c *char) Skill(p map[string]int) (action.Info, error) {
 		Durability: 25,
 		Mult:       skillInital[c.TalentLvlSkill()],
 	}
-	c.Core.QueueAttack(ai, combat.NewCircleHitOnTarget(c.Core.Combat.Player(), nil, 4), skillInitHitmark, skillInitHitmark, c.particleCB, c.makeA4CB())
+	c.Core.QueueAttack(ai, combat.NewCircleHitOnTarget(skillPos, geometry.Point{Y: -1.5}, 5), skillInitHitmark, skillInitHitmark, c.particleCB, c.makeA4CB())
 
-	c.QueueCharTask(func() {
-		// E duration and ticks are not affected by hitlag
-		c.skillSrc = c.Core.F
-		c.Core.Tasks.Add(c.skillTick(c.skillSrc, skillTicks), skillInterval) // Assuming this executes every 60 frames
-		c.AddStatus(skillKey, skillTicks*skillInterval, false)
-	}, skillInitHitmark)
-
-	// TODO: if target is out of range then pos should be player pos + Y: 8 offset
-	skillPos := c.Core.Combat.PrimaryTarget().Pos()
-
-	aiBlade := combat.AttackInfo{
-		// TODO: Apply Ousia
-		ActorIndex:         c.Index,
-		Abil:               "Surging Blade (" + c.Base.Key.Pretty() + ")",
-		AttackTag:          attacks.AttackTagNone,
-		ICDTag:             attacks.ICDTagNone,
-		ICDGroup:           attacks.ICDGroupDefault,
-		StrikeType:         attacks.StrikeTypeSpear,
-		Element:            attributes.Cryo,
-		Durability:         0,
-		Mult:               arkhe[c.TalentLvlSkill()],
-		HitlagFactor:       0.01,
-		CanBeDefenseHalted: true,
+	// E duration and ticks are not affected by hitlag
+	c.skillSrc = c.Core.F
+	for i := 0.0; i < skillTicks; i++ {
+		c.Core.Tasks.Add(c.skillTick(c.skillSrc), skillFirstTickDelay+ceil(skillInterval*i))
 	}
+	c.AddStatus(skillKey, skillFirstTickDelay+ceil((skillTicks-1)*skillInterval), false)
+
 	c.QueueCharTask(func() {
 		if c.StatusIsActive(skillAlignedICDKey) {
 			return
 		}
 		c.AddStatus(skillAlignedICDKey, skillAlignedICD, true)
-
+		aiBlade := combat.AttackInfo{
+			// TODO: Apply Arkhe
+			ActorIndex: c.Index,
+			Abil:       "Surging Blade (" + c.Base.Key.Pretty() + ")",
+			AttackTag:  attacks.AttackTagElementalArt,
+			ICDTag:     attacks.ICDTagNone,
+			ICDGroup:   attacks.ICDGroupDefault,
+			StrikeType: attacks.StrikeTypeSpear,
+			Element:    attributes.Cryo,
+			Durability: 0,
+			Mult:       arkhe[c.TalentLvlSkill()],
+		}
 		c.Core.QueueAttack(
 			aiBlade,
-			combat.NewCircleHitOnTarget(skillPos, nil, 4.5),
-			skillAlignedHitmark-skillInitHitmark, // TODO: snapshot delay?
-			skillAlignedHitmark-skillInitHitmark, // TODO: snapshot delay?
+			combat.NewCircleHitOnTarget(skillPos, nil, 5),
+			0, // TODO: snapshot delay?
+			0, // TODO: snapshot delay?
 			c.makeA4CB(),
 		)
-	}, skillInitHitmark)
+	}, skillAlignedHitmark)
 
-	c.SetCDWithDelay(action.ActionSkill, int(skillCD[c.TalentLvlSkill()])*60, 22)
+	c.SetCDWithDelay(action.ActionSkill, skillCD, 22)
 
 	c.c1()
 	c.c2()
@@ -90,7 +101,7 @@ func (c *char) Skill(p map[string]int) (action.Info, error) {
 	return action.Info{
 		Frames:          frames.NewAbilFunc(skillFrames),
 		AnimationLength: skillFrames[action.InvalidAction],
-		CanQueueAfter:   skillFrames[action.ActionJump], // earliest cancel
+		CanQueueAfter:   skillFrames[action.ActionSwap], // earliest cancel
 		State:           action.SkillState,
 	}, nil
 }
@@ -106,16 +117,11 @@ func (c *char) particleCB(a combat.AttackCB) {
 	c.Core.QueueParticle(c.Base.Key.String(), 4, attributes.Cryo, c.ParticleDelay)
 }
 
-func (c *char) skillTick(src, count int) func() {
+func (c *char) skillTick(src int) func() {
 	return func() {
 		if src != c.skillSrc {
 			return
 		}
-
-		if count <= 0 {
-			return
-		}
-		c.Core.Log.NewEvent("Frosty Parfait firing", glog.LogCharacterEvent, c.Index)
 
 		ai := combat.AttackInfo{
 			ActorIndex: c.Index,
@@ -129,9 +135,6 @@ func (c *char) skillTick(src, count int) func() {
 			Mult:       skillDot[c.TalentLvlSkill()],
 		}
 		// trigger damage
-		//TODO: travel time
-		c.Core.QueueAttack(ai, combat.NewCircleHitOnTarget(c.Core.Combat.Player(), nil, 2), 0, 10, c.makeA4CB())
-
-		c.Core.Tasks.Add(c.skillTick(src, count-1), 60)
+		c.Core.QueueAttack(ai, combat.NewCircleHitOnTarget(c.Core.Combat.PrimaryTarget(), nil, 1.5), 0, c.skillTravel, c.makeA4CB())
 	}
 }

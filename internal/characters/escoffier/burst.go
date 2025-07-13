@@ -6,18 +6,21 @@ import (
 	"github.com/genshinsim/gcsim/pkg/core/attacks"
 	"github.com/genshinsim/gcsim/pkg/core/attributes"
 	"github.com/genshinsim/gcsim/pkg/core/combat"
+	"github.com/genshinsim/gcsim/pkg/core/geometry"
 	"github.com/genshinsim/gcsim/pkg/core/info"
 )
 
 var burstFrames []int
 
 const (
-	initialHeal = 92 // depends on ping
-	hitmark     = 94
+	initialHeal = 97 // depends on ping
+	hitmark     = 92
 )
 
 func init() {
-	burstFrames = frames.InitAbilSlice(109)
+	burstFrames = frames.InitAbilSlice(110)
+	burstFrames[action.ActionSkill] = 109
+	burstFrames[action.ActionSwap] = 108
 }
 
 func (c *char) Burst(p map[string]int) (action.Info, error) {
@@ -33,7 +36,7 @@ func (c *char) Burst(p map[string]int) (action.Info, error) {
 		Mult:       burst[c.TalentLvlBurst()],
 	}
 	c.QueueCharTask(func() {
-		c.Core.QueueAttack(ai, combat.NewCircleHitOnTarget(c.Core.Combat.Player(), nil, 6), 0, 0, c.makeA4CB())
+		c.Core.QueueAttack(ai, combat.NewCircleHitOnTarget(c.Core.Combat.Player(), geometry.Point{Y: -1.5}, 7), 0, 0, c.makeA4CB())
 	}, hitmark)
 
 	// initial heal
@@ -48,10 +51,10 @@ func (c *char) Burst(p map[string]int) (action.Info, error) {
 		})
 	}, initialHeal)
 
-	c.QueueCharTask(c.a1, hitmark)
+	c.a1()
 
 	c.SetCD(action.ActionBurst, int(burstCD[c.TalentLvlBurst()])*60)
-	c.ConsumeEnergy(6)
+	c.ConsumeEnergy(5)
 
 	c.c1()
 	return action.Info{
