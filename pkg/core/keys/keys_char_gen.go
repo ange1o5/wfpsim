@@ -81,10 +81,12 @@ const (
 	Sethos
 	Shenhe
 	Sigewinne
+	Skirk
 	Sucrose
 	Tartaglia
 	Thoma
 	Tighnari
+	Varesa
 	Venti
 	Wanderer
 	Wriothesley
@@ -209,6 +211,10 @@ func init() {
 	charPrettyName[Emilie] = "Emilie"
 	CharKeyToEle[Emilie] = attributes.Dendro
 
+	charNames[Escoffier] = "escoffier"
+	charPrettyName[Escoffier] = "Escoffier"
+	CharKeyToEle[Escoffier] = attributes.Cryo
+
 	charNames[Eula] = "eula"
 	charPrettyName[Eula] = "Eula"
 	CharKeyToEle[Eula] = attributes.Cryo
@@ -248,10 +254,6 @@ func init() {
 	charNames[Hutao] = "hutao"
 	charPrettyName[Hutao] = "Hutao"
 	CharKeyToEle[Hutao] = attributes.Pyro
-
-	charNames[Iansan] = "iansan"
-	charPrettyName[Iansan] = "Iansan"
-	CharKeyToEle[Iansan] = attributes.Electro
 
 	charNames[Itto] = "itto"
 	charPrettyName[Itto] = "Itto"
@@ -397,6 +399,10 @@ func init() {
 	charPrettyName[Sigewinne] = "Sigewinne"
 	CharKeyToEle[Sigewinne] = attributes.Hydro
 
+	charNames[Skirk] = "skirk"
+	charPrettyName[Skirk] = "Skirk"
+	CharKeyToEle[Skirk] = attributes.Cryo
+
 	charNames[Sucrose] = "sucrose"
 	charPrettyName[Sucrose] = "Sucrose"
 	CharKeyToEle[Sucrose] = attributes.Anemo
@@ -412,6 +418,10 @@ func init() {
 	charNames[Tighnari] = "tighnari"
 	charPrettyName[Tighnari] = "Tighnari"
 	CharKeyToEle[Tighnari] = attributes.Dendro
+
+	charNames[Varesa] = "varesa"
+	charPrettyName[Venti] = "Varesa"
+	CharKeyToEle[Venti] = attributes.Electro
 
 	charNames[Venti] = "venti"
 	charPrettyName[Venti] = "Venti"

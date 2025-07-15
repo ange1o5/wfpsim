@@ -45,6 +45,7 @@ var weaponNames = []string{
 	"astralvulturescrimsonplumage",
 	"athousandblazingsuns",
 	"athousandfloatingdreams",
+	"azurelight",
 	"balladoftheboundlessblue",
 	"balladofthefjords",
 	"beaconofthereedsea",
@@ -187,7 +188,6 @@ var weaponNames = []string{
 	"skywardharp",
 	"skywardpride",
 	"skywardspine",
-	"symphonist",
 	"slingshot",
 	"snowtombedstarsilver",
 	"solarpearl",
@@ -202,6 +202,7 @@ var weaponNames = []string{
 	"surfsup",
 	"swordofdescension",
 	"swordofnarzissenkreuz",
+	"symphonistofscents",
 	"talkingstick",
 	"tamayurateinoohanashi",
 	"thealleyflash",
@@ -256,6 +257,7 @@ const (
 	AstralVulturesCrimsonPlumage
 	AThousandBlazingSuns
 	AThousandFloatingDreams
+	Azurelight
 	BalladOfTheBoundlessBlue
 	BalladOfTheFjords
 	BeaconOfTheReedSea
@@ -398,7 +400,6 @@ const (
 	SkywardHarp
 	SkywardPride
 	SkywardSpine
-	SymphonistOfScents
 	Slingshot
 	SnowTombedStarsilver
 	SolarPearl
@@ -413,6 +414,7 @@ const (
 	SurfsUp
 	SwordOfDescension
 	SwordOfNarzissenkreuz
+	SymphonistOfScents
 	TalkingStick
 	TamayurateiNoOhanashi
 	TheAlleyFlash
